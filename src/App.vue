@@ -1,11 +1,12 @@
+<!-- src/App.vue -->
 <template>
   <div id="app">
-    <BarChart />
+      <Dashboard />
   </div>
 </template>
 
 <script setup lang="ts">
-import BarChart from './components/BarChart.vue';
+import Dashboard from './views/Dashboard.vue';
 </script>
 
 <style>
