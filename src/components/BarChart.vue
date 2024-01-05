@@ -1,6 +1,5 @@
-<!-- src/components/BarChart.vue -->
 <template>
-    <div>
+    <div class="card">
         <Bar :data="chartData" :options="chartOptions" />
     </div>
 </template>
@@ -17,13 +16,13 @@ import {
     CategoryScale,
     LinearScale,
 } from 'chart.js';
-import { fetchData } from '../api/api';
+import { fetchBarChartData } from '../api/api';
 
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
 
-interface DataItem {
-    label: string;
-    value: number;
+interface BarChartDataItem {
+    destinationUserName: string;
+    sum: number;
 }
 
 const chartData = ref({
@@ -44,11 +43,11 @@ const chartOptions = ref({
 
 const loadChartData = async () => {
     try {
-        const data: DataItem[] = await fetchData();
-        chartData.value.labels = data.map(item => item.label);
-        chartData.value.datasets[0].data = data.map(item => item.value);
+        const data: BarChartDataItem[] = await fetchBarChartData();
+        chartData.value.labels = data.map(item => item.destinationUserName);
+        chartData.value.datasets[0].data = data.map(item => item.sum);
     } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching bar chart data:', error);
     }
 };
 
