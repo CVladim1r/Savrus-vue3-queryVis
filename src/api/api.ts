@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-interface DataItem {
+export interface DataItem {
     SvrSeid: number;
     SvrSrt: number;
     seid: number;
@@ -19,7 +19,7 @@ interface DataItem {
     agentAddress: string;
 }
 
-interface RadarDataItem {
+export interface RadarDataItem {
     argument: string;
     number: number;
     max: number;
@@ -27,17 +27,17 @@ interface RadarDataItem {
     cnt: number;
 }
 
-interface BarChartDataItem {
+export interface BarChartDataItem {
     destinationUserName: string;
     sum: number;
 }
 
-interface PieChartDataItem {
+export interface PieChartDataItem {
     destinationAddress: string;
     sum: number;
 }
 
-const apiUrl = import.meta.env.VITE_API_URL as string;
+export const apiUrl = import.meta.env.VITE_API_URL as string;
 
 if (!apiUrl) {
     throw new Error('VITE_API_URL is not defined in the environment variables.');

@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "chart.js": "^4.4.3",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-util": "^3.0.8",
     "radar-chart": "^1.0.6",
     "vue": "^3.4.21",
     "vue-chartjs": "^5.3.1",
-    "vue-router": "^4.3.3"
+    "vue-router": "^4.0.13"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^7.13.0",
