@@ -1,16 +1,16 @@
-<!-- src/views/Dashboard.vue -->
 <template>
     <h1>Графики и таблица</h1>
     <div class="dashboard">
-        <div class="card">
+        <div class="caerd">
             <h3>Bar Chart</h3>
             <BarChart />
         </div>
-        <div class="card">
+        <div class="caerd">
             <h3>Radar Chart</h3>
             <RadarChart />
         </div>
-        <div class="card">
+    
+        <div class="card-table">
             <h3>Table</h3>
             <DataTable :items="data" :headers="headers" />
         </div>
@@ -42,12 +42,20 @@ onMounted(async () => {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-    padding: 16px;
 }
 .card {
     flex: 1;
     min-width: 300px;
     max-width: 600px;
+    background: #fff;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.card-table {
+    flex: 1;
+    width: auto;
+    max-width: 900px;
     background: #fff;
     padding: 16px;
     border-radius: 8px;
