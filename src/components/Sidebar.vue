@@ -1,8 +1,18 @@
+<!-- Sidebar.vue -->
 <template>
   <div class="sidebar">
     <ul>
-      <li><router-link to="/">Dashboard</router-link></li>
-      <li><router-link to="/logs">Logs</router-link></li>
+      <li :class="{ active: $route.path === '/' }">
+        <router-link to="/">
+          <i class="fas fa-home"></i> Dashboard
+        </router-link>
+      </li>
+      <li :class="{ active: $route.path === '/logs' }">
+        <router-link to="/logs">
+          <i class="fas fa-list"></i> Logs
+        </router-link>
+      </li>
+      <!-- Другие пункты меню, если необходимо -->
     </ul>
   </div>
 </template>
@@ -17,12 +27,6 @@
   color: white;
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  overflow-y: auto;
 }
 
 .sidebar ul {
@@ -37,7 +41,8 @@
 .sidebar a {
   text-decoration: none;
   color: white;
-  display: block;
+  display: flex;
+  align-items: center;
   padding: 10px;
   border-radius: 4px;
   transition: background 0.3s;
@@ -47,21 +52,11 @@
   background-color: #2c387e;
 }
 
-@media (max-width: 768px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
+.sidebar i {
+  margin-right: 10px;
+}
 
-  .sidebar ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-  }
-
-  .sidebar li {
-    margin: 5px 0;
-  }
+.active {
+  background-color: #2c387e;
 }
 </style>

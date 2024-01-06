@@ -42,25 +42,23 @@ onMounted(async () => {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
+    padding: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    flex-direction: row;
+    justify-content: center;
 }
 .card {
     flex: 1;
     min-width: 300px;
-    max-width: 600px;
+    max-width: 300px;
     background: #fff;
     padding: 16px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.card-table {
-    flex: 1;
-    width: auto;
-    max-width: 900px;
-    background: #fff;
-    padding: 16px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+
 h3{
     color: rgb(63, 65, 78);
     font-size: large;

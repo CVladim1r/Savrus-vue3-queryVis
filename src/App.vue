@@ -1,9 +1,11 @@
 <template>
   <div class="app">
-      <Sidebar />
+    <Sidebar />
+    <div class="main-content">
       <div class="content">
         <router-view />
       </div>
+    </div>
   </div>
 </template>
 
@@ -14,57 +16,34 @@ import Sidebar from './components/Sidebar.vue';
 <style scoped>
 .app {
   display: flex;
-  flex-direction: column;
   height: 100vh;
-  width: 100vh;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  background-color: #3f51b5;
-  color: white;
-  padding: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.logo {
-  height: 40px;
-  margin-right: 10px;
-}
-
-.title {
-  font-size: 1.5em;
-  margin: 0;
 }
 
 .main-content {
-  display: flex;
   flex: 1;
-  overflow: hidden;
 }
 
 .content {
   color: #fff;
   padding: 16px;
+  flex-direction: column;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #3f51b5;
+  color: white;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .logo {
-    margin-bottom: 10px;
-  }
-
-  .main-content {
-    flex-direction: column;
-  }
-
-  .content {
-    padding: 10px;
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
   }
 }
 </style>
