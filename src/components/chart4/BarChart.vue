@@ -16,7 +16,7 @@ import {
     CategoryScale,
     LinearScale,
 } from 'chart.js';
-import { fetchBarChartData } from '../api/api';
+import { fetchBarChartData } from '../../api/api';
 
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
 

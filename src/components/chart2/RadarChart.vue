@@ -18,7 +18,7 @@ import {
     LineElement,
     Filler,
 } from 'chart.js';
-import { fetchRadarData } from '../api/api';
+import { fetchRadarData } from '../../api/api';
 
 ChartJS.register(Title, Tooltip, Legend, RadialLinearScale, PointElement, LineElement, Filler);
 

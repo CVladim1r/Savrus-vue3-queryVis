@@ -8,7 +8,7 @@
         :localeText="localeText"
         rowSelection="multiple"
         @grid-ready="onGridReady"
-        sideBar="columns"
+        :sideBar="sideBar"
       ></ag-grid-vue>
     </div>
   </template>
@@ -60,25 +60,6 @@
     params.api.sizeColumnsToFit();
   };
   
-
-  const headers = ref([
-    "SvrSeid",
-    "SvrSrt",
-    "seid",
-    "SRT",
-    "type",
-    "name",
-    "deviceAddress",
-    "deviceHostName",
-    "severity",
-    "destinationAddress",
-    "destinationUserName",
-    "sourceAddress",
-    "sourceUserName",
-    "deviceVendor",
-    "deviceProduct",
-    "agentAddress"
-  ]);
   
 
   const localeText = ref({
@@ -149,6 +130,25 @@
   avg: "Среднее",
 });
   
+
+const sideBar = ref({
+  toolPanels: [
+    {
+      id: 'columns',
+      labelDefault: 'Columns',
+      labelKey: 'columns',
+      toolPanel: 'agColumnsToolPanel',
+      toolPanelParams: {
+        suppressRowGroups: false,
+        suppressValues: false,
+        suppressPivots: true,
+        suppressPivotMode: true,
+      },
+    },
+  ],
+  defaultToolPanel: 'columns',
+});
+
   </script>
   
   <style scoped>

@@ -13,6 +13,7 @@ client = Client(
     database=app.config['CLICKHOUSE_DATABASE']
 )
 
+# Пример запроса для выгрузки данных в активный канал (табличный вид)
 @app.route('/api/data', methods=['GET'])
 def get_data():
     query = """
@@ -44,6 +45,7 @@ def get_data():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+# Пример запроса для построения радара 2
 @app.route('/api/radar', methods=['GET'])
 def get_radar_data():
     query = """
@@ -96,6 +98,10 @@ def get_radar_data():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+# Пример запроса диаграммы (
+# попробовать пирог, 
+# гистограмму (с разрывами желательно, чтобы на одной диаграмме можно было разномасштабные колонки показать), 
+# табличное отображение)
 @app.route('/api/pie_chart', methods=['GET'])
 def get_pie_chart_data():
     query = """
@@ -119,6 +125,7 @@ def get_pie_chart_data():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+# Пример запроса диаграммы 4
 @app.route('/api/bar_chart', methods=['GET'])
 def get_bar_chart_data():
     query = """

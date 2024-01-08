@@ -2,28 +2,34 @@
     <h1>Графики и таблица</h1>
     <div class="dashboard">
         <div class="dashboard-card">
-            <div class="caerd">
-                <h3>Bar Chart</h3>
-                <BarChart />
-            </div>
-            <div class="caerd">
-                <h3>Radar Chart</h3>
-                <RadarChart />
-            </div>
+          <div class="card">
+            <h3>Bar Chart</h3>
+            <BarChart />
+          </div>
+          <div class="card">
+            <h3>Radar Chart</h3>
+            <RadarChart />
+          </div>
+          <div class="card">
+            <PieChart :data="pieData" />
+            <HistogramWithGaps :data="histogramData" />
+            <TableView :items="tableData" :headers="tableHeaders" />
+          </div>
         </div>
-
-    
         <div class="card-table">
-            <h3>Table</h3>
-            <DataTable :items="testData" :headers="headers" />
+          <h3>Table</h3>
+          <DataTable :items="testData" :headers="headers" />
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import BarChart from '../components/BarChart.vue';
-import RadarChart from '../components/RadarChart.vue';
-import DataTable from '../components/DataTable.vue';
+import BarChart from '../components/chart4/BarChart.vue';
+import RadarChart from '../components/chart2/RadarChart.vue';
+import DataTable from '../components/chart1/DataTable.vue';
+import PieChart from './components/chart3/PieChart.vue';
+import HistogramWithGaps from './components/chart3/HistogramWithGaps.vue';
+import TableView from './components/chart3/TableView.vue';
 import { fetchData, DataItem } from '../api/api';
 import { ref, onMounted } from 'vue';
 
