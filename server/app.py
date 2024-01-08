@@ -1,9 +1,12 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, Response
 from clickhouse_driver import Client
+from flask_cors import CORS
 from config import Config
 
 app = Flask(__name__)
 app.config.from_object(Config)
+
+CORS(app)
 
 client = Client(
     host=app.config['CLICKHOUSE_HOST'],
@@ -12,6 +15,10 @@ client = Client(
     password=app.config['CLICKHOUSE_PASSWORD'],
     database=app.config['CLICKHOUSE_DATABASE']
 )
+
+@app.route('/')
+def hello():
+    return 'Hello, World!'
 
 # Пример запроса для выгрузки данных в активный канал (табличный вид)
 @app.route('/api/data', methods=['GET'])
@@ -98,6 +105,7 @@ def get_radar_data():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+
 # Пример запроса диаграммы (
 # попробовать пирог, 
 # гистограмму (с разрывами желательно, чтобы на одной диаграмме можно было разномасштабные колонки показать), 
@@ -121,7 +129,7 @@ def get_pie_chart_data():
         result = client.execute(query)
         columns = [column[0] for column in client.execute("DESCRIBE TABLE savrus.data")]
         pie_chart_data = [dict(zip(columns, row)) for row in result]
-        return jsonify
+        return jsonify(pie_chart_data)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
@@ -142,8 +150,9 @@ def get_bar_chart_data():
     ORDER BY SUM(cnt) DESC;
     """
     try:
-        result = db.session.execute(query)
-        bar_chart_data = [dict(row) for row in result]
+        result = client.execute(query)
+        columns = [column[0] for column in client.execute("DESCRIBE TABLE savrus.data")]
+        bar_chart_data = [dict(zip(columns, row)) for row in result]
         return jsonify(bar_chart_data)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
@@ -152,11 +161,12 @@ def get_bar_chart_data():
 def execute_query():
     query = request.json.get('query')
     try:
-        result = db.session.execute(query)
-        data = [dict(row) for row in result]
+        result = client.execute(query)
+        columns = [column[0] for column in client.execute("DESCRIBE TABLE savrus.data")]
+        data = [dict(zip(columns, row)) for row in result]
         return jsonify(data)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0')
