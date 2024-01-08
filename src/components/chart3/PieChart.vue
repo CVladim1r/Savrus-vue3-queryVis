@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="card">
       <canvas ref="pieChart"></canvas>
     </div>
   </template>
@@ -38,5 +38,11 @@
     width: 100% !important;
     height: auto !important;
   }
+
+  .card {
+    border-radius: 8px;
+    min-width: 300px;
+    height: 300px;
+}
   </style>
   

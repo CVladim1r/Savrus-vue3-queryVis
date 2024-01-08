@@ -149,11 +149,11 @@ const sideBar = ref({
   defaultToolPanel: 'columns',
 });
 
-  </script>
+</script>
   
-  <style scoped>
+<style scoped>
   .ag-theme-alpine {
-    height: 600px;
+    height: 400px;
     min-width: 300px;
     width: auto;
     color: black;
@@ -161,5 +161,5 @@ const sideBar = ref({
   .table-view {
     border-radius: 8px;
   }
-  </style>
+</style>
   

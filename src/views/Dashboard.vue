@@ -2,19 +2,26 @@
     <h1>Графики и таблица</h1>
     <div class="dashboard">
         <div class="dashboard-card">
-          <div class="card">
-            <h3>Bar Chart</h3>
+          <div class="">
+            <h3>Bar Chart query 4</h3>
             <BarChart />
           </div>
-          <div class="card">
-            <h3>Radar Chart</h3>
+          <div class="">
+            <h3>Radar Chart query 2</h3>
             <RadarChart />
           </div>
-          <div class="card">
+          <div class="">
+            <h3>Radar Chart query 3</h3>
             <PieChart :data="pieData" />
-            <HistogramWithGaps :data="histogramData" />
-            <TableView :items="tableData" :headers="tableHeaders" />
           </div>
+          <div>
+            <h3>Radar Chart query 3</h3>
+            <div style="display: flex; gap: 16px;">
+              <HistogramWithGaps :data="histogramData" />
+              <TableView :items="tableData" :headers="table2Headers" />
+            </div>
+          </div>
+          
         </div>
         <div class="card-table">
           <h3>Table</h3>
@@ -27,9 +34,9 @@
 import BarChart from '../components/chart4/BarChart.vue';
 import RadarChart from '../components/chart2/RadarChart.vue';
 import DataTable from '../components/chart1/DataTable.vue';
-import PieChart from './components/chart3/PieChart.vue';
-import HistogramWithGaps from './components/chart3/HistogramWithGaps.vue';
-import TableView from './components/chart3/TableView.vue';
+import PieChart from '../components/chart3/PieChart.vue';
+import HistogramWithGaps from '../components/chart3/HistogramWithGaps.vue';
+import TableView from '../components/chart3/TableView.vue';
 import { fetchData, DataItem } from '../api/api';
 import { ref, onMounted } from 'vue';
 
@@ -145,6 +152,39 @@ const testData: DataItem[] = [
   },
 ];
 
+const pieData = {
+  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+  datasets: [
+    {
+      data: [12, 19, 3, 5, 2, 3],
+      backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40'],
+    },
+  ],
+};
+
+const histogramData = {
+  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  datasets: [
+    {
+      label: 'Dataset 1',
+      data: [65, 59, 80, 81, 56, 55, 40],
+      backgroundColor: 'rgba(255, 99, 132, 0.2)',
+    },
+    {
+      label: 'Dataset 2',
+      data: [28, 48, 40, 19, 86, 27, 90],
+      backgroundColor: 'rgba(54, 162, 235, 0.2)',
+    },
+  ],
+};
+
+const tableData = [
+  { "destinationAddress": "192.168.1.1", "cnt": 10 },
+  { "destinationAddress": "192.168.1.2", "cnt": 15 },
+  { "destinationAddress": "192.168.1.3", "cnt": 5 }
+];
+const table2Headers = ['destinationAddress', 'cnt'];
+
 const tableHeaders: string[] = Object.keys(testData[0]);
 
 let data = ref<DataItem[]>(testData);
@@ -164,7 +204,7 @@ const headers = ref<string[]>(tableHeaders);
 
 <style scoped>
 .dashboard {
-    padding: 24px;
+    padding: 24px 24px 0 24px;
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
@@ -182,14 +222,14 @@ const headers = ref<string[]>(tableHeaders);
     min-width: 300px;
     max-width: 300px;
     background: #fff;
-    padding: 16px;
+    padding: 16px 16px 0 16px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 h3{
-    color: rgb(63, 65, 78);
+    color: rgb(255, 255, 255);
     font-size: large;
-    font-weight: 500;
+    font-weight: 400;
 }
 </style>

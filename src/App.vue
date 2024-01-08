@@ -25,7 +25,6 @@ import Sidebar from './components/Sidebar.vue';
 
 .content {
   color: #fff;
-  padding: 16px;
   flex-direction: column;
 }
 

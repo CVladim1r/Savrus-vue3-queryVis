@@ -1,5 +1,5 @@
 <template>
-    <div class="ag-theme-alpine" style="height: 500px; width: 100%;">
+    <div class="ag-theme-alpine" style="height: 300px; width: 100%;">
       <ag-grid-vue
         class="ag-theme-alpine table-view"
         :columnDefs="columnDefs"
@@ -63,10 +63,14 @@
   });
   </script>
   
-  <style scoped>
-  .table-view {
-    width: 100%;
-    height: 100%;
+<style scoped>
+  .ag-theme-alpine {
+    height: 300px;
+    min-width: 300px;
+    width: 616px;
+    color: black;
   }
-  </style>
-  
+  .table-view {
+    border-radius: 8px;
+  }
+</style>

@@ -6,7 +6,7 @@ import Logs from './views/Logs.vue'
 const routes: Array<RouteRecordRaw> = [
   { path: '/', component: Dashboard },
   //{ path: '/settings', component: Settings },
-  //{ path: '/logs', component: Logs }
+  { path: '/logs', component: Logs }
 ];
 
 const router = createRouter({
