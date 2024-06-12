@@ -1,4 +1,3 @@
-<!-- Sidebar.vue -->
 <template>
   <div class="sidebar">
     <ul>
@@ -7,12 +6,16 @@
           <i class="fas fa-home"></i> Dashboard
         </router-link>
       </li>
+      <li :class="{ active: $route.path === '/settings' }">
+        <router-link to="/settings">
+          <i class="fas fa-list"></i> Settings
+        </router-link>
+      </li>
       <li :class="{ active: $route.path === '/logs' }">
         <router-link to="/logs">
           <i class="fas fa-list"></i> Logs
         </router-link>
       </li>
-      <!-- Другие пункты меню, если необходимо -->
     </ul>
   </div>
 </template>

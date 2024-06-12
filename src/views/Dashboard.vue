@@ -40,7 +40,6 @@ import TableView from '../components/chart3/TableView.vue';
 import { fetchData, DataItem } from '../api/api';
 import { ref, onMounted } from 'vue';
 
-// Test data for the table
 const testData: DataItem[] = [
   {
     SvrSeid: 13,

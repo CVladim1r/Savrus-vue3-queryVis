@@ -1,4 +1,3 @@
-<!-- src/components/RadarChart.vue -->
 <template>
     <div class="card">
         <Radar :data="chartData" :options="chartOptions" />
