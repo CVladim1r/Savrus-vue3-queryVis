@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 
+server/__pycache__/config.cpython-312.pyc
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -22,6 +23,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-/server
-*__pyca

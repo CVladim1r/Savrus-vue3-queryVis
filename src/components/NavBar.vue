@@ -8,7 +8,6 @@
   
   <script setup>
   const navigateTo = (route) => {
-    // Реализуйте переход по маршрутам
     console.log('Переход на страницу:', route);
   }
   </script>
