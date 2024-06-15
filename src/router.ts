@@ -3,6 +3,7 @@ import Dashboard from './views/Dashboard.vue';
 import Logs from './views/Logs.vue'
 import Settings from './views/Settings.vue';
 
+// Все пути к нашим страницам
 const routes: Array<RouteRecordRaw> = [
   { path: '/', component: Dashboard },
   { path: '/settings', component: Settings },
